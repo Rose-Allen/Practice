@@ -1,8 +1,9 @@
 .header {
-  padding-top: 25px;
+  margin-top: 25px;
 }
 
 .nav {
+  width: 100%;
 }
 
 .nav::after {
@@ -10,7 +11,7 @@
   display: block;
   width: 100%;
   height: 1px;
-  margin-top: 30px;
+  margin: 32px 0 0 0;
   background-color: var(--font-color-grey);
 }
 
@@ -25,8 +26,30 @@
   color: var(--font-color-grey);
   font-size: 18px;
   font-weight: 700;
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -10px;
+  height: 1px;
+  background-color: var(--color-main-black);
+  transition: right 0.22s;
 }
 
 .nav-link:hover {
-  color: var(--main-color-black);
+  color: var(--color-main-black);
+}
+
+.nav-link:hover::after {
+  right: 0;
+}
+
+@media (max-width: 480px) {
+  .header {
+    display: none;
+  }
 }
